@@ -1,7 +1,6 @@
 package DBSchema::Sample;
 
 
-use 5.006;
 use strict;
 use warnings;
 
@@ -27,7 +26,8 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(load
 	
 );
-our $VERSION = '1.8';
+
+our $VERSION = '2.0';
 
 
 # Preloaded methods go here.
@@ -271,9 +271,12 @@ When it follows the prereqs, it installs L<DBIx::AnyDBD|DBIx::AnyDBD>.
 Follow the prompts for DBI connection information
 and the tables will be built and populated.
 
-SQLite users: when this command is run, be sure to run it in a directory where
+SQLite users: (1) when this command is run, be sure to run it in a directory where
 there is no directory named the same as your database and if there is a file
-with the name of your database, that file is in fact your database.
+with the name of your database, that file is in fact your database. (2) the default username (undef) is just fine.
+
+
+
 
 =back
 
@@ -295,7 +298,13 @@ creating a realistic schema and populating it with sensible data.
 
 =head2 authors =1:n=> titleauthors
 
+C<au_id> is a surrogate primary key for the authors table
+C<< (au_id, title_id) >> is the primary key for the titleauthors table
+
 =head2 titles  =1:n=> titleauthors
+
+C<title_id> is a surrogate primary key for the titles table.
+
 
 =head3 Therefore authors =n:n=> titles
 
@@ -303,6 +312,8 @@ creating a realistic schema and populating it with sensible data.
 =head2 titles  =1:n=> titleditors
 
 =head2 editors =1:n=> titleditors
+
+C<ed_id> is a surrogate primary key for the authors table
 
 =head3 Therefore editors =n:n=> titles
 
@@ -312,17 +323,27 @@ At first, I didn't understand how a title could have more
 than one royalty, then I realized that a title has
 varying royalties based on the total volume sold.
 
+roysched has C<title_id> as a foreign key. And C<title_id> is the primary key in C<titles>.
+
 =head2 publishers =1:n=> titles
+
+C<pub_id> is the surrogate primary key.
 
 =head2 titles     =1:n=> salesdetails
 
 =head2 sales      =1:n=> salesdetails
+
+sales has C<sonum> as a primary key. C<sonum> is a foreign key in salesdetails.
 
 =head3 Therefore titles =n:n=> sales
 
 =head1 AUTHOR
 
 T. M. Brannon, tbone@cpan.org
+
+=head2 SOURCE
+
+L<http://github.com/metaperl/dbschema-sample/tree/master>
 
 =head1 SEE ALSO
 
@@ -332,5 +353,13 @@ L<DBD::SQLite>
 L<DBIx::Recordset::Playground>
 L<Class::DBI>
 L<DBI>
+
+=head2 Other sample databases
+
+=head3 GMAX's
+
+
+L<https://launchpad.net/test-db/> and L<http://datacharmer.blogspot.com/2008/07/dont-guess-test-sample-database-with.html>
+
 
 =cut

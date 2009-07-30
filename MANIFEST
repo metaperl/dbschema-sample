@@ -1,0 +1,12 @@
+Changelog
+Makefile.PL
+MANIFEST
+lib/DBSchema/Sample.pm
+lib/DBSchema/Sample/Default.pm
+lib/DBSchema/Sample/Pg.pm
+lib/DBSchema/Sample/SQLite.pm
+schema.jpg
+schema.dez
+scripts/load-db.pl
+test.pl
+META.yml                                Module meta-data (added by MakeMaker)

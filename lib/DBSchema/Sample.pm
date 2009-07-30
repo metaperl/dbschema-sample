@@ -27,7 +27,7 @@ our @EXPORT = qw(load
 	
 );
 
-our $VERSION = '2.0';
+our $VERSION = '2.0.a';
 
 
 # Preloaded methods go here.
@@ -295,6 +295,10 @@ creating a realistic schema and populating it with sensible data.
  load()
 
 =head1 SCHEMA DESCRIPTON
+
+You can get a PDF of the schema to view here:
+
+L<http://github.com/metaperl/dbschema-sample/blob/e94b148318147f835f27a6a17587f7d87c956fbb/etc/dbschema.pdf>
 
 =head2 authors =1:n=> titleauthors
 

@@ -28,4 +28,11 @@ sub find_and_fix {
     $row->update;
 }
 
-find_and_fix();
+sub find_and_fix2 {
+    my $row = MyModel->single( authors => { au_lname => 'White' } ) ;
+
+    $row->update( { au_lname => 'Kite' } );
+}
+
+find_and_fix2();
+

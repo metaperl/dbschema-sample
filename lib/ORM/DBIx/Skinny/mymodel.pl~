@@ -1,0 +1,13 @@
+use lib '.' ;
+
+use MyModel;
+
+my $row = MyModel->insert( authors => {
+				       au_id => '111-11-1111', au_lname => 'Wall', au_fname => 'Larry'
+				      }
+			 );
+
+warn "row: $row";
+
+
+		 

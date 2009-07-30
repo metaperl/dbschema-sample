@@ -1,12 +1,14 @@
 Changelog
-Makefile.PL
-MANIFEST
+etc/dbschema.architect
+etc/dbschema.pdf
 lib/DBSchema/Sample.pm
 lib/DBSchema/Sample/Default.pm
 lib/DBSchema/Sample/Pg.pm
 lib/DBSchema/Sample/SQLite.pm
-schema.jpg
+Makefile.PL
+MANIFEST
+META.yml			Module meta-data (added by MakeMaker)
 schema.dez
+schema.jpg
 scripts/load-db.pl
 test.pl
-META.yml                                Module meta-data (added by MakeMaker)
